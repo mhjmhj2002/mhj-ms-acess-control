@@ -12,11 +12,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import lombok.Data;
-import lombok.ToString;
 
 @Data
 @Entity
-@ToString
 public class User {
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
