@@ -17,6 +17,9 @@ import org.springframework.web.filter.GenericFilterBean;
 import com.mhj.ms.acess.control.exception.CustomException;
 
 import io.jsonwebtoken.JwtException;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class JwtTokenFilter extends GenericFilterBean {
 	
     private JwtTokenProvider jwtTokenProvider;
@@ -30,6 +33,9 @@ public class JwtTokenFilter extends GenericFilterBean {
             throws IOException, ServletException {
         HttpServletResponse response = (HttpServletResponse) res;
         String token = jwtTokenProvider.resolveToken((HttpServletRequest) req);
+        
+        log.info("Token: {}", token);
+        
         if (token != null) {
             if (!jwtTokenProvider.isTokenPresentInDB(token)) {
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Invalid JWT token");
