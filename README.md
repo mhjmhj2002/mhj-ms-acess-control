@@ -12,6 +12,9 @@ Projeto para controle de acesso para micro serviços, tecnologia usada:
 - Jackson
 - Lombok
 - Mapstruct
+- Eureka
+- Zuul
+- Hikari
 - Pendentes:
 	- Swagger 
 	- Junit
