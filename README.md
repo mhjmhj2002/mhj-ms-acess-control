@@ -12,21 +12,22 @@ Projeto para controle de acesso para micro serviços, tecnologia usada:
 - Jackson
 - Lombok
 - Mapstruct
-Pendentes:
-- Swagger 
-- Junit
+- Pendentes:
+	- Swagger 
+	- Junit
 
 Banco de dados: 
 Criar BD SQL e adicionar os dados da conexão nas variaveis de ambiente (application.properties),o start do projeto cria as tabelas.
 
 Start do projeto (realizar o mvn install primeiro):
-- No Eclipse pode ser criada uma run configuration ou dar start na classe principal MhjMsAcessControlApplication.java
-- passando as vars de ambiente fora do arquivo de properties:
-Adicionar as variaveis de ambiente em run configurations->enviroments
+- No Eclipse:
+	- pode ser criada uma run configuration ou dar start na classe principal MhjMsAcessControlApplication.java
+	- passando as vars de ambiente fora do arquivo de properties:
+		- Adicionar as variaveis de ambiente em run configurations->enviroments
 - via comando: 
-mvn spring-boot:run
-- passando as vars de ambiente fora do arquivo de properties:
-mvn spring-boot:run -Dspring-boot.run.arguments=--PASS=<senha-do-bd>,--USER=<usuario-do-bd>,--URL=jdbc:mysql://<ip-do-bd>/<nome-do-bd>?useTimezone=true&serverTimezone=UTC
+	mvn spring-boot:run
+	- passando as vars de ambiente fora do arquivo de properties:
+		mvn spring-boot:run -Dspring-boot.run.arguments=--PASS=<senha-do-bd>,--USER=<usuario-do-bd>,--	URL=jdbc:mysql://<ip-do-bd>/<nome-do-bd>?useTimezone=true&serverTimezone=UTC
 
 Acessar o banco depois do projeto ter cirado as tabelas e adicionar:
 role: exemplo root
