@@ -25,14 +25,17 @@ Start do projeto (realizar o mvn install primeiro):
 	- passando as vars de ambiente fora do arquivo de properties:
 		- Adicionar as variaveis de ambiente em run configurations->enviroments
 - via comando: 
-	mvn spring-boot:run
+	- mvn spring-boot:run
 	- passando as vars de ambiente fora do arquivo de properties:
 		mvn spring-boot:run -Dspring-boot.run.arguments=--PASS=<senha-do-bd>,--USER=<usuario-do-bd>,--	URL=jdbc:mysql://<ip-do-bd>/<nome-do-bd>?useTimezone=true&serverTimezone=UTC
 
 Acessar o banco depois do projeto ter cirado as tabelas e adicionar:
-role: exemplo root
-user: exemplo user@gmail.com
-user_role: incluir a PK do user e do role.
+- role: 
+	- exemplo: root
+- user: 
+	- exemplo: user@gmail.com
+- user_role: 
+	- incluir a PK do user e do role.
 
 Exemplo de request para buscar token:
 curl --location --request POST 'http://localhost:8080/api/signin/' \
