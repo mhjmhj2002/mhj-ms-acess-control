@@ -27,9 +27,9 @@ Start do projeto (realizar o mvn install primeiro):
 - via comando: 
 	- mvn spring-boot:run
 	- passando as vars de ambiente fora do arquivo de properties:
-		mvn spring-boot:run -Dspring-boot.run.arguments=--PASS=<senha-do-bd>,--USER=<usuario-do-bd>,--	URL=jdbc:mysql://<ip-do-bd>/<nome-do-bd>?useTimezone=true&serverTimezone=UTC
+		mvn spring-boot:run -Dspring-boot.run.arguments=--PASS=senha-do-bd,--USER=usuario-do-bd,--	URL=jdbc:mysql://ip-do-bd/nome-do-bd?useTimezone=true&serverTimezone=UTC
 
-Acessar o banco depois do projeto ter cirado as tabelas e adicionar:
+Acessar o banco depois do projeto ter criado as tabelas e adicionar:
 - role: 
 	- exemplo: root
 - user: 
