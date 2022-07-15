@@ -8,6 +8,5 @@ import com.mhj.ms.acess.control.auth.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,String> {
-//    @Query(value="{'email' : ?0}")
     User findByEmail(String email);
 }

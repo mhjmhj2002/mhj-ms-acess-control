@@ -10,9 +10,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@JsonDeserialize(as = MongoUserDetails.class)
+@JsonDeserialize(as = UserDetailsDto.class)
 @Data
-public class MongoUserDetails implements UserDetails {
+public class UserDetailsDto implements UserDetails {
 
 	private static final long serialVersionUID = -6751255811060289722L;
 	
@@ -24,7 +24,7 @@ public class MongoUserDetails implements UserDetails {
     private boolean isEnabled;
     private List<GrantedAuthority> grantedAuthorities;
 
-    public MongoUserDetails(String username, String password,Integer active, boolean isLocked, boolean isExpired, boolean isEnabled, String [] authorities) {
+    public UserDetailsDto(String username, String password,Integer active, boolean isLocked, boolean isExpired, boolean isEnabled, String [] authorities) {
         this.username = username;
         this.password = password;
         this.active = active;
@@ -34,12 +34,12 @@ public class MongoUserDetails implements UserDetails {
         this.grantedAuthorities = AuthorityUtils.createAuthorityList(authorities);
     }
 
-    public MongoUserDetails(String username,  String [] authorities) {
+    public UserDetailsDto(String username,  String [] authorities) {
         this.username = username;
         this.grantedAuthorities = AuthorityUtils.createAuthorityList(authorities);
     }
 
-    public MongoUserDetails() {
+    public UserDetailsDto() {
         super();
     }
 

@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
 import com.mhj.ms.acess.control.auth.entity.JwtToken;
-import com.mhj.ms.acess.control.dto.response.MongoUserDetails;
+import com.mhj.ms.acess.control.dto.response.UserDetailsDto;
 import com.mhj.ms.acess.control.repository.JwtTokenRepository;
 
 import io.jsonwebtoken.Claims;
@@ -104,7 +104,7 @@ public class JwtTokenProvider {
 		
 		String userName = getUsername(token);
 		List<String> roleList = getRoleList(token);
-		UserDetails userDetails = new MongoUserDetails(userName, roleList.toArray(new String[roleList.size()]));
+		UserDetails userDetails = new UserDetailsDto(userName, roleList.toArray(new String[roleList.size()]));
 		return userDetails;
 	}
 
