@@ -104,7 +104,11 @@ public class JwtTokenProvider {
 		
 		String userName = getUsername(token);
 		List<String> roleList = getRoleList(token);
-		UserDetails userDetails = new UserDetailsDto(userName, roleList.toArray(new String[roleList.size()]));
+		UserDetailsDto userDetailsDto = new UserDetailsDto(userName, roleList.toArray(new String[roleList.size()]));
+		
+		log.info("UserDetailsDto: {}", userDetailsDto);
+		
+		UserDetails userDetails = userDetailsDto;
 		return userDetails;
 	}
 

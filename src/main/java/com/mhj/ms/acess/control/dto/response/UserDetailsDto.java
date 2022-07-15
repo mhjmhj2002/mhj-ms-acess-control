@@ -2,6 +2,7 @@ package com.mhj.ms.acess.control.dto.response;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import lombok.Data;
+import lombok.ToString;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @JsonDeserialize(as = UserDetailsDto.class)
 @Data
+@ToString
 public class UserDetailsDto implements UserDetails {
 
 	private static final long serialVersionUID = -6751255811060289722L;
