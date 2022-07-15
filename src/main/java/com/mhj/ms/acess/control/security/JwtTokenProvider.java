@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
 import com.mhj.ms.acess.control.auth.entity.JwtToken;
@@ -32,13 +31,13 @@ public class JwtTokenProvider {
 	private String secretKey = "secret-key";
 	private static long SECOND_IN_MILIS = 1000;
 	private static long MINUTE_IN_MILIS = 60 * SECOND_IN_MILIS;
-//	private static long HOUR_IN_MILIS = 60 * MINUTE_IN_MILIS;
+	private static long HOUR_IN_MILIS = 60 * MINUTE_IN_MILIS;
 
 	@Autowired
 	private JwtTokenRepository jwtTokenRepository;
 
-	@Autowired
-	private UserDetailsService userDetailsService;
+//	@Autowired
+//	private UserDetailsService userDetailsService;
 
 	@PostConstruct
 	protected void init() {
@@ -54,7 +53,7 @@ public class JwtTokenProvider {
 		claims.put(AUTH, roles);
 
 		Date now = new Date();
-		Date validity = new Date(now.getTime() + MINUTE_IN_MILIS);// HOUR_IN_MILIS);
+		Date validity = new Date(now.getTime() + HOUR_IN_MILIS);
 
 		String token = Jwts.builder()//
 				.setClaims(claims)//
@@ -112,6 +111,7 @@ public class JwtTokenProvider {
 		return userDetails;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<String> getRoleList(String token) {
 		
 		log.info("getRoleList.token: {}", token);
